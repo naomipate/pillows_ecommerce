@@ -18,10 +18,9 @@ INSERT INTO pillows (brand_name, display_name, is_deleted, has_text, color, img_
 ('Prada', 'Floral', false, false, 'white', '/images/pillows/floral.png'),
 ('Louis Vuitton', 'Chic Cushion', false, true, 'brown', '/images/pillows/luxury_shapes.png'),
 ('Burberry', 'Plaid Perfection', false, false, 'red', '/images/pillows/midnight_gold.png'),
-('Chanel', 'Classic Comfort', false, true, 'black', '/images/peacock.png'),
+('Chanel', 'Classic Comfort', false, true, 'black', '/images/pillows/peacock.png'),
 ('Dior', 'Stylish Slumber', false, false, 'blue', '/images/pillows/rolling_hills.png'),
-('Armani', 'Elegant Repose', false, true, 'gray', '/images/pillows/watercolor.png'),
-('Fendi', 'Trendy Comfort', false, true, 'yellow', '/images/pillows/watercolor.png');
+('Armani', 'Elegant Repose', false, true, 'gray', '/images/pillows/watercolor.png');
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users(

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #pillow-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+      .pillow img {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pillow-container"></div>
+
+    <script>
+      console.log(window, document);
+      window.onload = function () {
+        console.log("Hello world!");
+        fetch("http://localhost:8080/pillows")
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            let pillowDataEl = document.getElementById("pillow-container");
+            // pillowDataEl.innerHTML = "Hello World!";
+            data.forEach((pillow) => {
+              console.log(pillow);
+              let pillowEl = document.createElement("div");
+              pillowEl.className = "pillow";
+
+              let brandEl = document.createElement("h3");
+              brandEl.innerHTML = pillow.brand_name;
+
+              let titleEl = document.createElement("p");
+              titleEl.innerHTML = pillow.display_name;
+
+              let imgEl = document.createElement("img");
+              imgEl.src = "http://localhost:8080" + pillow.img_url;
+              imgEl.alt = pillow.title;
+              pillowEl.appendChild(brandEl);
+              pillowEl.appendChild(titleEl);
+              pillowEl.appendChild(imgEl);
+
+              pillowDataEl.append(pillowEl);
+            });
+          });
+      };
+    </script>
+  </body>
+</html>
