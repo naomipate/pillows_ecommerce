@@ -49,13 +49,12 @@ router.get("/:id", async (req, res) => {
 
 // CREATE
 router.post("/", pillowUpload.single("img_url"), async (req, res) => {
-  const { brand_name, display_name, has_text, color, img_url } = req.body;
+  const { brand_name, display_name, has_text, color } = req.body;
   const partialImgPath = `/images/pillows/${
     Date.now() + "_" + req.file.originalname
   }`;
   const path = "./public" + partialImgPath;
 
-  console.log(brand_name, display_name, has_text, color, img_url);
   await sharp(req.file.buffer).resize(300, 300).toFile(path);
   try {
     const newPillow = await db.any(
