@@ -71,5 +71,4 @@ INSERT INTO reviews (pillow_id, user_id, content, rating, upvotes, downvotes) VA
 (5, 14, 'A bit pricey, but totally worth it.', 4, 6, 2),
 (6, 11, 'Classic design but feels a bit rough.', 3, 3, 3),
 (7, 12, 'The blue is so vibrant!', 5, 5, 1),
-(8, 9, 'A bit too plain for my taste.', 2, 1, 5),
-(9, 18, 'Love the watercolors!', 4, 4, 1);
+(8, 9, 'A bit too plain for my taste.', 2, 1, 5);
