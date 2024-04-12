@@ -7,8 +7,8 @@ async function handleGetAllPillows() {
   return data;
 }
 
-async function handleGetOnePillow() {
-  const res = await fetch(REACT_APP_URL + "/pillows/:id");
+async function handleGetOnePillow(id) {
+  const res = await fetch(REACT_APP_URL + "/pillows/" + id);
   const data = await res.json();
   return data;
 }

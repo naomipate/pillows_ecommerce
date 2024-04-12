@@ -1,39 +1,38 @@
 .pillows-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    margin: auto;
-    padding: 25px;
-    max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin: auto;
+  padding: 25px;
+  max-width: 800px;
 }
 
 .pillow-card .image {
-    height: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media only screen and (max-width: 480px) {
-    .pillows-container {
-        grid-template-columns: 1fr;
-    }
-    .pillow-card .image {
-        /* height: 300px; */
-    }
-
+@media only screen and (max-width: 768px) {
+  .pillows-container {
+    grid-template-columns: 1fr;
+  }
+  .pillow-card .image {
+    height: 300px;
+  }
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 1024px) {
-    .pillow-card .image {
-        height: 200px;
-    }
+  .pillow-card .image {
+    height: 200px;
+  }
 }
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    /* Styles */
+  /* Styles */
 }
 
 /* iPads (portrait) ----------- */
@@ -42,10 +41,10 @@
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
-    /* Styles */
+  /* Styles */
 }
 
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
-    /* Styles */
+  /* Styles */
 }

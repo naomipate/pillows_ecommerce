@@ -1,0 +1,20 @@
+.pillow-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px;
+}
+
+.image {
+  height: 400px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.details {
+  text-align: center;
+}
+
+.reviews {
+}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Create.css";
 
 function Create() {
+  const [imageFile, setImageFile] = useState();
+
   async function createPillow(e) {
     let formData = new FormData();
 

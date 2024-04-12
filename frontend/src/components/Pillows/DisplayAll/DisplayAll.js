@@ -2,10 +2,10 @@ import React from "react";
 import "./DisplayAll.css";
 import { handleGetAllPillows } from "../../../utils/urlRequests.js";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function DisplayAll() {
   const [pillows, setPillows] = useState([]);
-  const [imageFile, setImageFile] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,45 +16,39 @@ function DisplayAll() {
   }, []);
 
   console.log(pillows);
-  let pillowElList = pillows.map((pillowDetails) => {
-    return <Pillow pillowDetails={pillowDetails} />;
+  let pillowElList = pillows.map((pillowDetails, index) => {
+    return <Pillow key={index} pillowDetails={pillowDetails} />;
   });
 
-  const Pillow = ({ pillowDetails }) => {
-    // {
-    //     "id": 2,
-    //     "brand_name": "Versace",
-    //     "display_name": "Face",
-    //     "is_deleted": false,
-    //     "has_text": true,
-    //     "color": "gold",
-    //     "img_url": "/images/pillows/face.png"
-    // }
-    return (
-      <div className="pillow-card">
-        <div
-          className="image"
-          style={{
-            backgroundImage: `url(http://localhost:8080${pillowDetails.img_url})`,
-          }}
-        ></div>
-        <div className="display-name">{pillowDetails.display_name}</div>
-        <div className="brand-name">{pillowDetails.brand_name}</div>
-        <div className="rating">Rating</div>
-        <div className="price">$0.00</div>
-        <div className="shipping-details"></div>
+  return <div className="pillows-container">{pillowElList}</div>;
+}
 
-        {/* <img src={"http://localhost:8080" + pillowDetails.img_url} alt={pillowDetails.display_name} width="75" /> */}
-      </div>
-    );
+const Pillow = ({ pillowDetails }) => {
+  let navigate = useNavigate();
+  const handlePillowOnClick = (pillowID) => {
+    console.log(pillowID);
+    navigate(`/pillows/${pillowID}`);
   };
 
-  //   useEffect(() => {
-  //     async function fetchData() {
-  //       let pillows = await handleGetAllPillows();
-  //       return pillows;
-  //     }
-  //     fetchData();
-  //   }, []);
-}
+  return (
+    <div
+      className="pillow-card"
+      onClick={() => handlePillowOnClick(pillowDetails.id)}
+    >
+      <div
+        className="image"
+        style={{
+          backgroundImage: `url(http://localhost:8080${pillowDetails.img_url})`,
+        }}
+      ></div>
+      <div className="display-name">{pillowDetails.display_name}</div>
+      <div className="brand-name">{pillowDetails.brand_name}</div>
+      <div className="rating">Rating</div>
+      <div className="price">$0.00</div>
+      <div className="shipping-details"></div>
+
+      {/* <img src={"http://localhost:8080" + pillowDetails.img_url} alt={pillowDetails.display_name} width="75" /> */}
+    </div>
+  );
+};
 export default DisplayAll;
